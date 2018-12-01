@@ -1,0 +1,29 @@
+DONE:
+    • Arduino with a sensor / multiple sensors
+        ◦ Possible to use Raspberry Pi with directly attached sensor
+    • Raspberry Pi with a Linux distribution
+    • Database
+        ◦ Or other means of saving data from the sensor
+    • Remote publishing with MQTT
+        ◦ Destination: IoT-Cloud-Hub.azure-devices.net (Documentation)
+        ◦ Each group has its own Device ID and key (at the end of the document) for submitting data to the Azure IoT Hub
+
+    • Management solution (SSH, GUI?)
+    
+-------------------------------------------------------------------------------------------------------------------------
+
+TODO:
+    • Local publishing method (e.g. web server running on the Pi)
+      -> set up apache web server
+    • ?? Service location (database/web server/authentication), additional servers or services from cloud?
+    
+    • SECURITY
+      -> set rpi password
+      -> use cloud hub authentication token??
+      
+    • Data retention (automatic maintenance, history)
+      -> rsyslog (tempdata.log and any other log)
+    
+    • Use the right cloud destination  
+     
+    • Write documentation
