@@ -14,16 +14,13 @@ DONE:
 
 TODO:
     • Local publishing method (e.g. web server running on the Pi)
-      -> set up apache web server
-    • ?? Service location (database/web server/authentication), additional servers or services from cloud?
-    
+      -> set up apache web server (make data accessible on a web page)
+   
     • SECURITY
       -> set rpi password
-      -> use cloud hub authentication token??
       
     • Data retention (automatic maintenance, history)
       -> rsyslog (tempdata.log and any other log)
     
-    • Use the right cloud destination  
-     
+   
     • Write documentation
