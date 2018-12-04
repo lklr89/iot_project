@@ -9,18 +9,20 @@ DONE:
         ◦ Each group has its own Device ID and key (at the end of the document) for submitting data to the Azure IoT Hub
 
     • Management solution (SSH, GUI?)
+        -> VNC Server/ Viewer
     
+    • SECURITY
+      -> set rpi password to "iotproject"    
+
 -------------------------------------------------------------------------------------------------------------------------
 
 TODO:
     • Local publishing method (e.g. web server running on the Pi)
       -> set up apache web server (make data accessible on a web page)
    
-    • SECURITY
-      -> set rpi password
+
       
     • Data retention (automatic maintenance, history)
       -> rsyslog (tempdata.log and any other log)
-    
-   
+       
     • Write documentation
