@@ -14,15 +14,36 @@ DONE:
     • SECURITY
       -> set rpi password to "iotproject"    
 
+    • Local publishing method (e.g. web server running on the Pi)
+      -> set up apache web server (make data accessible on a web page)
+         
+    • Data retention (automatic maintenance, history)
+      -> rsyslog (tempdata.log and any other log)
 -------------------------------------------------------------------------------------------------------------------------
 
 TODO:
-    • Local publishing method (e.g. web server running on the Pi)
-      -> set up apache web server (make data accessible on a web page)
-   
-
       
-    • Data retention (automatic maintenance, history)
-      -> rsyslog (tempdata.log and any other log)
-       
-    • Write documentation
+• Write documentation
+    -> local publishing method:
+        - we installed Apache2 (web server) on the pi using "sudo apt install apache2"
+        - we started the server using "sudo systemctl start apache2"
+        - we installed websocketd from http://websocketd.com/ on the pi and moved the executable to /usr/bin/ 
+        (to be able to use it in the command line interface)
+        - websocketd provides a simple way to publish file contents on a server
+        - we created a folder ("static") with a link to our log file in it in /var/www/html/
+        - we wrote the index.html file in /var/www/html/ 
+        - we use "websocketd --port=8080 --staticdir=static/ tail -f tempdata.log" to publish content of 
+        the static folder and make it accessible on port 8080
+        - (use the uploaded screenshots)
+
+     -> data retention:
+        - we wanted our logfile to be rotated when it gets bigger than 100 kilobyte
+        - we created a rotation rule for the file in /etc/logrotate.conf
+        - the rule sais there should be maximum 6 rotation files (with the older data) and it should rotate when 
+        it has a size of at least 100 kilobytes
+        - because the logrotation is scheduled (by default) daily, we had to change it, because otherwise
+        logrotate checks way too late if the file exceeded its limits
+        - we removed /etc/cron.daily/logrotate and made a new cron rule in /etc/cron.d/ to run it every 10 minutes
+        - the screenshot shows that this 10 minute rule lets the files get a size of 124K (it rotates every 20 minutes
+        because limits are not exceeded after the first 10 minutes)
+        - screenshot shows also the logrotation rule for our file and the cron rule
