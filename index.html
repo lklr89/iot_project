@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<script type="text/javascript">
+			var ws = new WebSocket('ws://ABCpi:8080/');
+
+			ws.onmessage = function(event) {
+				//document.getElementById('msgBox').innerHTML = event.data;
+				console.log(event.data)
+			}
+
+		</script>	
+	</head>
+</html>
